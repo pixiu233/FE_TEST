@@ -1,27 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import ListItem from '@/components/dashboard/compoents/List/ListItem';
+import MyContext from '@/components/dashboard/compoents/RightCompoent/context';
 
 export type ListProp = {
-  source: Array<object>;
-  active: number;
+  source: any;
+  active?: number;
 };
-const List = ({ source, active }: ListProp) => {
+const listType: any = {
+  1: 'mikestonesMockData',
+  2: 'questMockData',
+  3: 'trackMockData',
+};
+const List = ({ source }: ListProp) => {
+  const { active } = useContext(MyContext);
   return (
     <div className='mt-8'>
-      {source.map(({ start, total, base, done, key }: any, index) => {
-        return (
-          <ListItem
-            key={key}
-            id={key}
-            start={start}
-            total={total}
-            base={base}
-            done={done}
-            active={active}
-          />
-        );
-      })}
+      {source[listType[active]].map(
+        ({ start, total, base, done, key }: any) => {
+          return (
+            <ListItem
+              key={key}
+              id={key}
+              start={start}
+              total={total}
+              base={base}
+              done={done}
+              active={active}
+            />
+          );
+        }
+      )}
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense } from 'react';
 
 import EDButton from '@/components/dashboard/compoents/Buttons/Button';
-import RadioProgress from '@/components/dashboard/compoents/radioRing/RadialProgress';
-import { getRadialProgressList } from '@/components/dashboard/compoents/RightCompoent/api';
+import Radiol from '@/components/dashboard/compoents/radioRing/Radiol';
 
 export type DataProps = Array<{
   base: number;
@@ -11,18 +10,7 @@ export type DataProps = Array<{
   start: number;
 }>;
 
-const TopComponent = () => {
-  const [radialProgressMockData, setRadialProgressMockData] =
-    useState<DataProps>([]);
-
-  useEffect(() => {
-    getRadialProgressList().then(({ data }) => {
-      if (data) {
-        setRadialProgressMockData(data);
-      }
-    });
-  }, []);
-
+const TopComponent = async () => {
   return (
     <div className='bg-fill  relative mb-3 flex min-h-[220px] rounded-[22px] text-left leading-4'>
       {/* Text */}
@@ -61,26 +49,18 @@ const TopComponent = () => {
         />
       </svg>
       {/* mid */}
-      <div className='relative flex  pt-6'>
-        {radialProgressMockData.length > 0 &&
-          radialProgressMockData.map((item) => {
-            return (
-              <RadioProgress
-                step={item.step}
-                key={item.step}
-                base={item.base}
-                total={item.total}
-                start={item.start}
-              />
-            );
-          })}
+      {/* 解决屏闪问题 */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className='relative flex  pt-6'>
+          <Radiol />
+          {/* 圆圈连接线 */}
+          <div
+            style={{ width: 'calc(100% - 6.5rem - 1rem)' }}
+            className=' absolute top-[5.7rem] ml-4 h-[1px] bg-white '
+          />
+        </div>
+      </Suspense>
 
-        {/* 圆圈连接线 */}
-        <div
-          style={{ width: 'calc(100% - 6.5rem - 1rem)' }}
-          className=' absolute top-[5.7rem] ml-4 h-[1px] bg-white '
-        />
-      </div>
       <div className='ml-[59px] flex flex-col items-center justify-center'>
         <EDButton
           style={{

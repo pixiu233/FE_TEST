@@ -22,7 +22,35 @@
 
 6. Vercel自动化配置部署。
 
-TODO:异步请求首页会导致屏闪问题
+TODO:异步请求首页会导致屏闪问题//已解决
+
+ques1:如何解决加载数据有延迟导致css闪烁的问题,如何提高用户体验
+
+anw:使用 suspense boundary分解渲染工作。
+```bash
+ <Suspense fallback={<div>Loading...</div>}>
+        <Albums promise={albumData} />
+</Suspense>
+```
+
+ques2:报错了React Gets First Class Support for Async/Await
+anw:用客户端渲染解决。
+
+ques3:又报错了。fetch找不到接口404，但是浏览器可以正常请求。
+anw:用全路径。and 配置base_url针对dev和开发环境。
+
+ques4:切换tab导致每次都要重新发请求，要减少请求次数减少服务器压力。
+ans:因为传入参数导致每次react渲染。用context跨级传递参数。
+
+ques5:无限fetch的情况，issue上很多人都遇到了。。。。
+ans:用cache
+
+ques6:报错了。。。Error: Not implemented.
+ans: 官方bug。。。next13的问题 https://github.com/vercel/next.js/issues/42180
+最后用了memoize解决
+
+完美解决！
+
 
 ### 0. LightHouse
 Before code optimization

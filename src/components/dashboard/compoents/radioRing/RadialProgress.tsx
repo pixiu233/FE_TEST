@@ -8,6 +8,7 @@ interface RadioProgressProps {
   total: number;
   step: number;
   start: number;
+
 }
 const circleStyle: any = {
   width: '123px',
