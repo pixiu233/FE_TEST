@@ -10,22 +10,27 @@
 ## Features
 使用最新- ⚡️ Next.js 13 with App Router
 
-1. 还原了UI设计稿。
+1. 像素级还原UI设计稿。
 
 2. 用fetch通过api路由获取本地mock数据
 
-3. 组件化思想进行拆分业务组件，完成了Button,List,RadialProgress,Progress等组件的抽象复用。
+3. 组件化思想进行拆分业务组件，完成了Button,List,RadialProgress,Progress,Tab等组件的抽象复用。
 
-4. Tilwind Theme等配置。
+4. Tab和按钮的可交互效果。
 
-5. Vercel自动化配置部署。
+5. Tailwind  theme等配置。
+
+6. Vercel自动化配置部署。
 
 ### 0. LightHouse
 Before code optimization
+
 ![Alt text](image.png)
 
 After code optimization
-1优化锚点可供抓取，搜索引擎可能会使用链接中的 href 属性来抓取网站,设置nofollow告诉浏览器不要爬取传递权重。
+
+ 优化锚点可供抓取，搜索引擎可能会使用链接中的 href 属性来抓取网站,设置nofollow告诉浏览器不要爬取传递权重。
+
 ![Alt text](image-1.png)
  
 This repository is 🔋 battery packed with:
