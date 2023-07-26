@@ -8,6 +8,18 @@
 </div>
 
 ## Features
+使用最新- ⚡️ Next.js 13 with App Router
+
+1. 还原了UI设计稿。
+
+2. 用fetch通过api路由获取本地mock数据
+
+3. 组件化思想进行拆分业务组件，完成了Button,List,RadialProgress,Progress等组件的抽象复用。
+
+4. Tilwind Theme等配置。
+
+5. Vercel自动化配置部署。
+
 ### 0. LightHouse
 Before code optimization
 ![Alt text](image.png)
