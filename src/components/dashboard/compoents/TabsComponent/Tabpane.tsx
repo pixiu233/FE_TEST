@@ -21,7 +21,8 @@ export default function Panel({
   const tabCtx = useContext(TabsContext);
   return (
     <a
-      href='./'
+      href='#k'
+      rel='nofollow'
       title={tab}
       className={classnames(
         defaultClas,

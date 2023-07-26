@@ -87,6 +87,9 @@ Before code optimization
 ![Alt text](image.png)
 
 After code optimization
+1. 优化锚点可供抓取，搜索引擎可能会使用链接中的 href 属性来抓取网站,设置nofollow告诉浏览器不要爬取传递权重。
+
+ 
 ### App Router Update
 
 Due to App Router update, the expansion pack is currently **outdated**. It will be updated in the future. You can still use them by copy and pasting the files.
