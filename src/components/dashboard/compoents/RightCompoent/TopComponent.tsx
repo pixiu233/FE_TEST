@@ -10,7 +10,7 @@ export type DataProps = Array<{
   start: number;
 }>;
 
-const TopComponent = async () => {
+const TopComponent = () => {
   return (
     <div className='bg-fill  relative mb-3 flex min-h-[220px] rounded-[22px] text-left leading-4'>
       {/* Text */}
