@@ -9,7 +9,7 @@ interface RadioProgressProps {
   step: number;
   start: number;
 }
-const circleStyle = {
+const circleStyle: any = {
   width: '123px',
   height: ' 123px',
   borderRadius: '50%',
@@ -46,7 +46,7 @@ const RadioProgress: React.FC<RadioProgressProps> = ({
         <div
           style={
             step === 2
-              ? { ...circleStyle, backgroundColor: 'white' }
+              ? { circleStyle, backgroundColor: 'white' }
               : { ...circleStyle }
           }
           className={`bg-fill z-40 flex items-center justify-center text-sm font-normal ${
