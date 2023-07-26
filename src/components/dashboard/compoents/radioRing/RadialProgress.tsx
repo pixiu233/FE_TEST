@@ -24,6 +24,11 @@ const RadioProgress: React.FC<RadioProgressProps> = ({
   start,
 }) => {
   const first = step === 1;
+  const sprops: any = {
+    '--value': (base / total) * 100 || 100,
+    '--size': '8.6rem',
+    '--thickness': '2px',
+  };
   return (
     <div
       className={` bg-fill   z-40 flex flex-col items-center ${
@@ -32,11 +37,7 @@ const RadioProgress: React.FC<RadioProgressProps> = ({
     >
       <div
         className='radial-progress z-70  relative mb-5 text-white'
-        style={{
-          '--value': (base / total) * 100 || 100,
-          '--size': '8.6rem',
-          '--thickness': '2px',
-        }}
+        style={sprops}
       >
         <div
           style={{ border: '4px solid #5C5C5C', zIndex: -1 }}
