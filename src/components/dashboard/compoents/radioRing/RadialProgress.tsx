@@ -46,7 +46,7 @@ const RadioProgress: React.FC<RadioProgressProps> = ({
         <div
           style={
             step === 2
-              ? { circleStyle, backgroundColor: 'white' }
+              ? { ...circleStyle, backgroundColor: 'white' }
               : { ...circleStyle }
           }
           className={`bg-fill z-40 flex items-center justify-center text-sm font-normal ${
