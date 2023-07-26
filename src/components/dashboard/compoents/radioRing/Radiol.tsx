@@ -8,7 +8,7 @@ import { getRadialProgressList } from '@/components/dashboard/compoents/RightCom
 const Radiol = () => {
   const { data } = use(getRadialProgressList());
 
-  return data.map((item) => {
+  return data.map((item: any) => {
     return (
       <RadioProgress
         step={item.step}
