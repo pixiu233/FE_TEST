@@ -12,7 +12,7 @@ type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
   variant?: (typeof ButtonVariant)[number];
-  size?: (typeof ButtonSize)[number];
+  size?: (typeof ButtonSize)[number] | string;
   leftIcon?: IconType | LucideIcon;
   rightIcon?: IconType | LucideIcon;
   classNames?: {
@@ -46,14 +46,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={cn(
-          'inline-flex items-center rounded font-medium',
+          'inline-flex items-center rounded-xl font-medium',
           'focus-visible:ring-primary-500 focus:outline-none focus-visible:ring',
           'shadow-sm',
           'transition-colors duration-75',
           //#region  //*=========== Size ===========
           [
-            size === 'base' && ['px-3 py-1.5', 'text-sm md:text-base'],
-            size === 'sm' && ['px-2 py-1', 'text-xs md:text-sm'],
+            size === 'base' && [
+              'px-[22px] pb-[14px] pt-[11px]',
+              'xxl:text-base text-sm',
+            ],
+            size === 'sm' && ['px-2 py-1', 'xxl:text-sm text-xs'],
           ],
           //#endregion  //*======== Size ===========
           //#region  //*=========== Variants ===========
@@ -86,9 +89,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'active:bg-white/80 disabled:bg-gray-200',
             ],
             variant === 'dark' && [
-              'bg-gray-900 text-white',
-              'border border-gray-600',
-              'hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-700',
+              'from-[#353535 0%] to[#2E2E2E 100% bg-gradient-to-r',
+              '!important hover:bg-gray-200 active:bg-gray-100 disabled:bg-gray-100',
+              ' font-normal',
+              'leading-[110%]',
             ],
           ],
           //#endregion  //*======== Variants ===========

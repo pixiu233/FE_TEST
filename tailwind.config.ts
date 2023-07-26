@@ -1,12 +1,22 @@
 import type { Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
+// import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...defaultTheme.fontFamily.sans],
+        primary: ['NEXT-Book'],
+      },
+      screens: {
+        sm: '480px',
+        md: '768px',
+        lg: '976px',
+        xl: '1440px',
+        xxl: '1650px',
+      },
+      borderRadius: {
+        large: '20px',
       },
       colors: {
         primary: {
@@ -24,6 +34,12 @@ export default {
           950: 'rgb(var(--tw-color-primary-950) / <alpha-value>)',
         },
         dark: '#222222',
+        'black-bg': '#010101',
+        fill: '#101010',
+        tc: '#EDEDED',
+        tcg: '#7D7D7D',
+        g: '#6F6F6F',
+        bg: '#202020',
       },
       keyframes: {
         flicker: {
@@ -52,5 +68,5 @@ export default {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('daisyui')],
 } satisfies Config;
