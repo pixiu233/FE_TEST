@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import EDButton from '@/components/dashboard/compoents/Buttons/Button';
 import RadioProgress from '@/components/dashboard/compoents/radioRing/RadialProgress';
+import { getRadialProgressList } from '@/components/dashboard/compoents/RightCompoent/api';
 
-import { radialProgressMockData } from '@/__mocks__/progress';
+export type DataProps = Array<{
+  base: number;
+  total: number;
+  step: number;
+  start: number;
+}>;
+
 const TopComponent = () => {
+  const [radialProgressMockData, setRadialProgressMockData] =
+    useState<DataProps>([]);
+
+  useEffect(() => {
+    getRadialProgressList().then(({ data }) => {
+      if (data) {
+        setRadialProgressMockData(data);
+      }
+    });
+  }, []);
+
   return (
     <div className='bg-fill  relative mb-3 flex min-h-[220px] rounded-[22px] text-left leading-4'>
       {/* Text */}
@@ -44,17 +62,18 @@ const TopComponent = () => {
       </svg>
       {/* mid */}
       <div className='relative flex  pt-6'>
-        {radialProgressMockData.map((item) => {
-          return (
-            <RadioProgress
-              step={item.step}
-              key={item.step}
-              base={item.base}
-              total={item.total}
-              start={item.start}
-            />
-          );
-        })}
+        {radialProgressMockData.length > 0 &&
+          radialProgressMockData.map((item) => {
+            return (
+              <RadioProgress
+                step={item.step}
+                key={item.step}
+                base={item.base}
+                total={item.total}
+                start={item.start}
+              />
+            );
+          })}
 
         {/* 圆圈连接线 */}
         <div
