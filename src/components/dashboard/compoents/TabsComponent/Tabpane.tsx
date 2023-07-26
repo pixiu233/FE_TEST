@@ -1,10 +1,10 @@
 import classnames from 'classnames';
-import { ReactElement, useContext } from 'react';
+import { useContext } from 'react';
 
 import TabsContext from './context';
 
 export type TPanelProp = {
-  tab: string | ReactElement;
+  tab: any;
   tabKey: string | number;
   classname?: any;
 };
@@ -21,6 +21,8 @@ export default function Panel({
   const tabCtx = useContext(TabsContext);
   return (
     <a
+      href='./'
+      title={tab}
       className={classnames(
         defaultClas,
         {
