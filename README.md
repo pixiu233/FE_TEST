@@ -22,6 +22,8 @@
 
 6. Vercel自动化配置部署。
 
+TODO:异步请求首页会导致屏闪问题
+
 ### 0. LightHouse
 Before code optimization
 
